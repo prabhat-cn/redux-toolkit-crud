@@ -1,6 +1,5 @@
-import React, {useRef, useEffect} from 'react'
+import React, {useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {addUser} from '../store/reducers/usersReducers'
 // data coming from api 
 // coming from userActions.js
 import {getUsers} from '../store/actions/userActions'
@@ -10,22 +9,10 @@ import Filter from '../components/Filter'
 
 const Home = () => {
 
-    // const state = useSelector((state) => state.users);
-    // console.log('state', state.users);
     const {users, loader} = useSelector((state) => state.users);
     console.log('user', users);
     // to dispatch actions
     const dispatch = useDispatch()
-    // const inputRef = useRef(''); // access value from input field
-
-    // const storeUser = (e)=> {
-    //     e.preventDefault();
-    //     console.log('inputRef->', inputRef.current.value);
-    //     // to add input go to payload
-    //     dispatch(addUser(inputRef.current.value));
-    //     // reset after submit
-    //     inputRef.current.value = "";
-    // }
 
     useEffect(() => {
         // api data called
@@ -33,6 +20,7 @@ const Home = () => {
     }, []);
 
     return(
+        
         
     !loader ? (
     <>
