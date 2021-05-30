@@ -4,7 +4,7 @@ import {getUsers, getUser} from '../actions/userActions'
 
 
 const usersReducers = createSlice({
-    name: 'users',
+    name: 'usersReducers',
     initialState: {
         // key
         // users: [
@@ -13,6 +13,9 @@ const usersReducers = createSlice({
         // ]
         // for bulk users
         users: [],
+        // if no user found
+        usersContainer: [],
+
         loader: false,
         errors: {},
         // for single user
@@ -24,10 +27,23 @@ const usersReducers = createSlice({
         // actions here
         // state = initialState
         addUser: (state, action) => {
-            console.log('action', action);
+            // console.log('action', action);
             // add and copy
             state.users = [...state.users, action.payload];
-        }
+        },
+
+        // for user filter
+        filteredUser: (state, action) => {
+            // filter
+            // state.users = state.users.filter(
+            //     (user) => user.name.toLowerCase().includes(action.payload)
+            // );
+            // if no user found with users
+            state.users = state.usersContainer.filter(
+                (user) => user.name.toLowerCase().includes(action.payload)
+            );
+
+        },
     },
 
     // for api get data AsyncThunk create promises here
@@ -42,6 +58,8 @@ const usersReducers = createSlice({
             state.loader = false;
             // response.data accessed
             state.users = action.payload;
+            // if no user found
+            state.usersContainer = action.payload;
         },
         // rejected promise error
         [getUsers.rejected]: (state, action) => {
@@ -69,7 +87,7 @@ const usersReducers = createSlice({
     },
 });
 
-export const {addUser} = usersReducers.actions;
+export const {addUser, filteredUser} = usersReducers.actions;
 
 
 export default usersReducers.reducer
