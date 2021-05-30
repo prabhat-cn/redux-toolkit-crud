@@ -1,16 +1,16 @@
 // to call api data
 import {createAsyncThunk} from '@reduxjs/toolkit'
-import axios from 'axios'
-// call back
+import API from '../../api';
 
+
+
+// call back
 // to get all users
 export const getUsers = createAsyncThunk('users', async () => {
     // users/pending
     // users/fulfilled
     // users/rejected
-    const response = await axios.get(
-        'https://jsonplaceholder.typicode.com/users'
-    );
+    const response = await API.get('/users');
     // inside of ** data kept result users data
     return response.data;
 });
@@ -21,9 +21,7 @@ export const getUsers = createAsyncThunk('users', async () => {
 
 // to get user data by id
 export const getUser = createAsyncThunk('user', async (id) => {
-    const response = await axios.get(
-        `https://jsonplaceholder.typicode.com/users/${id}`
-    );
+    const response = await API.get(`/users/${id}`);
     // inside of ** data kept result users data
     return response.data;
 });
