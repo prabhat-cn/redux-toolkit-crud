@@ -40,10 +40,10 @@ const Details = () => {
                     <div className="col-3">User Name</div>
                     <div className="col-9 text-end">{user.username}</div>
                 </div>
-                {/* <div className="row mb-2">
+                <div className="row mb-2">
                     <div className="col-3">Company</div>
-                    <div className="col-9 text-end">{user.company.name}</div>
-                </div> */}
+                    <div className="col-9 text-end">{user?.company?.name}</div>
+                </div>
                 <div className="row mb-2">
                     <div className="col-3">Phone</div>
                     <div className="col-9 text-end">{user.phone}</div>
