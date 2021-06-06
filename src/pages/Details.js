@@ -45,8 +45,20 @@ const Details = () => {
                     <div className="col-9 text-end">{user?.company?.name}</div>
                 </div>
                 <div className="row mb-2">
-                    <div className="col-3">Phone</div>
-                    <div className="col-9 text-end">{user.phone}</div>
+                    <div className="col-3">City</div>
+                    <div className="col-9 text-end">{user?.address?.city}</div>
+                </div>
+                <div className="row mb-2">
+                    <div className="col-3">Street</div>
+                    <div className="col-9 text-end">{user?.address?.street}</div>
+                </div>
+                <div className="row mb-2">
+                    <div className="col-3">Hotel Suite</div>
+                    <div className="col-9 text-end">{user?.address?.suite}</div>
+                </div>
+                <div className="row mb-2">
+                    <div className="col-3">Zipcode</div>
+                    <div className="col-9 text-end">{user?.address?.zipcode}</div>
                 </div>
                 <div className="row mb-2">
                     <div className="col-3">Website</div>
